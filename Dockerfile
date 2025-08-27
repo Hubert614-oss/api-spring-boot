@@ -12,7 +12,6 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
 
-
 # Explication :
 # Première étape : compile ton projet avec Maven.
 # Deuxième étape : copie le .jar dans une image légère pour l’exécuter.
