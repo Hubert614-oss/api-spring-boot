@@ -11,4 +11,5 @@ public class ProductModel {
     private Long id;
     private String name;
     private Double price;
+    private String promotion;
 }
