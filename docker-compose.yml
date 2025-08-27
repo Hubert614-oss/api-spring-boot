@@ -1,0 +1,41 @@
+services:
+  backend:
+    build: .
+    container_name: gvshop-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - gvshop-network
+
+  db:
+    image: postgres:17
+    container_name: gvshop-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - gvshop-network
+
+volumes:
+  db_data:
+
+
+networks:
+  gvshop-network:
+
+    # Explication :
+    # backend → ton application Spring Boot, buildée avec ton Dockerfile.
+    # db → un conteneur PostgreSQL avec persistance grâce à volumes.
+    # depends_on → le backend attend que la DB soit prête.
+    # env_file → on lit les variables depuis .env.
+    # networks → permet aux services de communiquer entre eux.

@@ -1,0 +1,57 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Java / Spring Boot
+*.log
+*.class
+*.jar
+*.war
+
+# IDE VS Code
+.vscode/
+
+# =====================
+# Docker / Images / Uploads
+# =====================
+uploads/
+docker-compose.override.yml
+
+# =====================
+# Config sensibles
+# =====================
+*.env
+application.properties
+application-*.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
